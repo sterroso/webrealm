@@ -385,8 +385,8 @@ export const PaginateCustomLabels = {
 };
 
 export const PaginateNoLabels = {
-    "totalDocs": false,
-    "docs": false,
+    "totalDocs": "totalResults",
+    "docs": "results",
     "limit": false,
     "offset": false,
     "page": false,

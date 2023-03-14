@@ -58,7 +58,7 @@ export const getAllUsers = async (req, res) => {
     try {
         const allUsers = await UsersService.getAllUsers(query, options);
 
-        if (allUsers.results.length) {
+        if (allUsers?.results?.length) {
             returnObject = allUsers;
             returnObject.status = Constants.Status200.OK.name;
         } else {
