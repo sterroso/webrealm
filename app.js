@@ -2,6 +2,9 @@ import express from "express";
 import cors from "cors";
 import appConfig from "./src/config/app.config.js";
 
+// Import routers
+import UsersRouter from "./src/routes/user.router.js";
+
 // Create app
 const app = express();
 
@@ -9,18 +12,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-    origin: (origin, next) => {
-        if (appConfig.cors.origins.indexOf(origin) !== -1) {
-            return next(null, origin);
-        } else {
-            return next(new Error("Origin not allowed by CORS!"));
-        }
-    },
     methods: appConfig.cors.methods,
 }));
 
 // App routes
-
+app.use("/api/users", UsersRouter);
 
 // Module exports
 export default app;

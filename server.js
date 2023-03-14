@@ -1,5 +1,6 @@
 import app from "./app.js";
 import appConfig from "./src/config/app.config.js";
+import "./src/config/mongo.config.js";
 
 const PORT = appConfig.port || 3000;
 

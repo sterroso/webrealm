@@ -8,7 +8,7 @@ export default {
         uri: process.env.MONGO_CONNECTION_STRING || "NO CONNECTION",
     },
     cors: {
-        origins: [/localhost/gi],
+        origins: [/localhost/gi, "127.0.0.1"],
         methods: ["GET", "POST", "PUT", "DELETE"],
     },
 }
