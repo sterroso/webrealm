@@ -2,7 +2,7 @@ import app from "./app.js";
 import appConfig from "./src/config/app.config.js";
 import "./src/config/mongo.config.js";
 
-const PORT = appConfig.port || 3000;
+const PORT = appConfig.port || 5000;
 
 const server = app.listen(PORT, () => {
     console.info(`Server listening requests on port ${PORT} ...`);

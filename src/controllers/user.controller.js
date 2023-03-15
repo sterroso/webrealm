@@ -1,4 +1,4 @@
-import * as UsersService from "../services/mongodb.users.service.js";
+import * as UserService from "../services/mongodb.user.service.js";
 import * as Constants from "../config/app.constans.js";
 
 const isValidIntParam = (param, includesZero = false) => {
@@ -56,7 +56,7 @@ export const getAllUsers = async (req, res) => {
     }
 
     try {
-        const allUsers = await UsersService.getAllUsers(query, options);
+        const allUsers = await UserService.getAllUsers(query, options);
 
         if (allUsers?.results?.length) {
             returnObject = allUsers;
@@ -84,7 +84,7 @@ export const getUserById = async (req, res) => {
     const { userId } = req.params;
 
     try {
-        const user = await UsersService.getUserById(userId);
+        const user = await UserService.getUserById(userId);
 
         if (user) {
             returnObject.status = Constants.Status200.OK.name;
@@ -112,7 +112,7 @@ export const createUser = async (req, res) => {
     const { body: data } = req;
 
     try {
-        const newUser = await UsersService.createUser(data);
+        const newUser = await UserService.createUser(data);
 
         if (newUser) {
             returnObject.status = Constants.Status200.CREATED.name;
@@ -142,7 +142,7 @@ export const updateUser = async (req, res) => {
     const { body: data } = req;
 
     try {
-        const updatedUser = await UsersService.updateUser(userId, data);
+        const updatedUser = await UserService.updateUser(userId, data);
 
         if (updatedUser) {
             returnObject.status = Constants.Status200.OK.name;
@@ -170,7 +170,7 @@ export const deleteUser = async (req, res) => {
     const { userId } = req.params;
 
     try {
-        const deleted = await UsersService.deleteUser(userId);
+        const deleted = await UserService.deleteUser(userId);
 
         if (deleted) {
             returnObject.status = Constants.Status200.OK.name;
